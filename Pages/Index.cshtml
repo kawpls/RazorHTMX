@@ -12,18 +12,10 @@
             var property = Model.Properties[i];
             var isLast = i == Model.Properties.Count - 1;
             var nextPage = Model.PageNumber + 1;
-
-            <div class="col-md-4 mb-4"
-            @if (isLast)
-            {
-                <text>
-                                hx-get="@Url.Page("Index", "Listings", new { pageNumber = nextPage })"
-                                hx-trigger="revealed"
-                                hx-swap="afterend"
-                </text>
-            }>
+            var url = "hx-get=/?pageNumber=2&handler=Listings hx-trigger=revealed hx-swap=afterend";
+            <div class="col-md-4 mb-4" @(isLast ? url:"")>
                 @await Html.PartialAsync("_PropertyCard", property)
-                </div>
+            </div>      
         }
     </div>
 </div>
