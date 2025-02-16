@@ -1,0 +1,16 @@
+﻿@using RazorHTMX.Models
+@model PropertyViewModel
+
+<div class="card shadow-sm">
+    <img src="@Model.ImageUrl" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <p class="card-text">@Model.Price</p>
+        <p class="text-muted">Inquiries: @Model.Inquiries</p>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#propertyModal">
+            View Details
+        </button>
+    </div>
+</div>
+
+

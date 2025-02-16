@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container mt-4">
+    <h2>Properties</h2>
+    <div id="property-list" class="row">
+        @foreach (var property in Model.Properties)
+        {
+            @await Component.InvokeAsync("PropertyCard", new { property })
+        }
+    </div>
+   
+    <!-- HTMX Load More Button -->
+    <button hx-get="/listings?page=2" hx-target="#property-list" hx-swap="beforeend"
+            class="btn btn-outline-primary mt-3">
+        Load More
+    </button>
+</div>
